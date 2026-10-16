@@ -1,0 +1,1355 @@
+{
+  "operations": {
+    "/v1/pricing-strategy/competitors/list": {
+      "request": {
+        "$ref": "#/components/schemas/v1GetCompetitorsRequest"
+      },
+      "response": {
+        "$ref": "#/components/schemas/v1GetCompetitorsResponse"
+      },
+      "operation_id": "pricing_competitors",
+      "description": "Метод для получения списка конкурентов — продавцов с похожими товарами в других интернет-магазинах и маркетплейсах."
+    },
+    "/v1/pricing-strategy/list": {
+      "request": {
+        "$ref": "#/components/schemas/v1GetStrategyListRequest"
+      },
+      "response": {
+        "$ref": "#/components/schemas/v1GetStrategyListResponse"
+      },
+      "operation_id": "pricing_list",
+      "description": null
+    },
+    "/v1/pricing-strategy/create": {
+      "request": {
+        "$ref": "#/components/schemas/v1CreatePricingStrategyRequest"
+      },
+      "response": {
+        "$ref": "#/components/schemas/v1CreatePricingStrategyResponse"
+      },
+      "operation_id": "pricing_create",
+      "description": null
+    },
+    "/v1/pricing-strategy/info": {
+      "request": {
+        "$ref": "#/components/schemas/v1StrategyRequest"
+      },
+      "response": {
+        "$ref": "#/components/schemas/v1GetStrategyResponse"
+      },
+      "operation_id": "pricing_info",
+      "description": null
+    },
+    "/v1/pricing-strategy/update": {
+      "request": {
+        "$ref": "#/components/schemas/v1UpdatePricingStrategyRequest"
+      },
+      "response": {
+        "$ref": "#/components/schemas/v1Empty"
+      },
+      "operation_id": "pricing_update",
+      "description": "Можно обновить все стратегии кроме системной."
+    },
+    "/v1/pricing-strategy/products/add": {
+      "request": {
+        "$ref": "#/components/schemas/v1AddStrategyItemsRequest"
+      },
+      "response": {
+        "$ref": "#/components/schemas/v1AddStrategyItemsResponse"
+      },
+      "operation_id": "pricing_items-add",
+      "description": null
+    },
+    "/v1/pricing-strategy/strategy-ids-by-product-ids": {
+      "request": {
+        "$ref": "#/components/schemas/v1ItemIDsRequest"
+      },
+      "response": {
+        "$ref": "#/components/schemas/v1GetStrategyIDsByItemIDsResponse"
+      },
+      "operation_id": "pricing_ids",
+      "description": null
+    },
+    "/v1/pricing-strategy/products/list": {
+      "request": {
+        "$ref": "#/components/schemas/v1StrategyRequest"
+      },
+      "response": {
+        "$ref": "#/components/schemas/v1GetStrategyItemsResponse"
+      },
+      "operation_id": "pricing_items-list",
+      "description": null
+    },
+    "/v1/pricing-strategy/product/info": {
+      "request": {
+        "$ref": "#/components/schemas/v1GetStrategyItemInfoRequest"
+      },
+      "response": {
+        "$ref": "#/components/schemas/v1GetStrategyItemInfoResponse"
+      },
+      "operation_id": "pricing_items-info",
+      "description": "Если вы добавили товар в стратегию ценообразования, метод вернёт цену и ссылку на товар у конкурента."
+    },
+    "/v1/pricing-strategy/products/delete": {
+      "request": {
+        "$ref": "#/components/schemas/v1ItemIDsRequest"
+      },
+      "response": {
+        "$ref": "#/components/schemas/v1DeleteStrategyItemsResponse"
+      },
+      "operation_id": "pricing_items-delete",
+      "description": null
+    },
+    "/v1/pricing-strategy/status": {
+      "request": {
+        "$ref": "#/components/schemas/v1UpdateStatusStrategyRequest"
+      },
+      "response": {
+        "$ref": "#/components/schemas/v1Empty"
+      },
+      "operation_id": "pricing_status",
+      "description": "Можно изменить статус любой стратегии кроме системной."
+    },
+    "/v1/pricing-strategy/delete": {
+      "request": {
+        "$ref": "#/components/schemas/v1StrategyRequest"
+      },
+      "response": {
+        "$ref": "#/components/schemas/v1Empty"
+      },
+      "operation_id": "pricing_delete",
+      "description": "Можно удалить любую стратегию кроме системной."
+    },
+    "/v2/analytics/stock_on_warehouses": {
+      "request": {
+        "$ref": "#/components/schemas/analyticsStockOnWarehouseRequest"
+      },
+      "response": {
+        "$ref": "#/components/schemas/analyticsStockOnWarehouseResponse"
+      },
+      "operation_id": "AnalyticsAPI_AnalyticsGetStockOnWarehousesV2",
+      "description": "\n<aside class=\"warning\">\nВ будущем метод будет отключён. Переключитесь на <a href=\"#operation/AnalyticsAPI_AnalyticsStocks\">/v1/analytics/stocks</a>.\n</aside>\n\nМетод для получения отчёта по остаткам и товарам в перемещении по складам Ozon.\n\n<aside class=\"warning\">\nОтличается от отчёта в разделе <b>Аналитика → Отчёты → Отчёт по остаткам и товарам в пути на склады Ozon</b> в личном кабинете.\n</aside>\n"
+    },
+    "/v1/analytics/turnover/stocks": {
+      "request": {
+        "$ref": "#/components/schemas/v1AnalyticsTurnoverStocksRequest"
+      },
+      "response": {
+        "$ref": "#/components/schemas/v1AnalyticsTurnoverStocksResponse"
+      },
+      "operation_id": "AnalyticsAPI_StocksTurnover",
+      "description": "Используйте метод, чтобы узнать оборачиваемость товара и количество дней, на которое хватит текущего остатка. \nМетод соответствует разделу [**FBO -> Управление остатками**](https://seller.ozon.ru/app/supply/stocks-management) в личном кабинете.\nВы можете делать не больше 1 запроса в минуту по одному кабинету `Client-Id`.\n    \nЕсли вы запрашиваете список товаров по `sku`, параметры `limit` и `offset` необязательны.\n"
+    },
+    "/v1/analytics/stocks": {
+      "request": {
+        "$ref": "#/components/schemas/v1AnalyticsStocksRequest"
+      },
+      "response": {
+        "$ref": "#/components/schemas/v1AnalyticsStocksResponse"
+      },
+      "operation_id": "AnalyticsAPI_AnalyticsStocks",
+      "description": "Используйте метод, чтобы получить аналитику по остаткам товаров на складах в реальном времени. Метод соответствует разделу [**FBO → Управление остатками**](https://seller.ozon.ru/app/fbo-stocks/stocks-management/) в личном кабинете. \n\nВ запросе используйте только одно из полей: `cluster_ids` или `macrolocal_cluster_ids`, иначе вернётся ошибка.\n"
+    },
+    "/v1/rating/summary": {
+      "request": {
+        "$ref": "#/components/schemas/v1Empty"
+      },
+      "response": {
+        "$ref": "#/components/schemas/v1RatingSummaryV1Response"
+      },
+      "operation_id": "RatingAPI_RatingSummaryV1",
+      "description": "Рейтинг продавца по следующим показателям: индекс цен, доставки вовремя, процент отмен, жалобы и другие.\nСоответствует разделу **Рейтинги → Рейтинги продавца** в личном кабинете.\n"
+    }
+  },
+  "schemas": {
+    "v1GetCompetitorsRequest": {
+      "required": [
+        "page",
+        "limit"
+      ],
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Страница списка, с которой нужно выгрузить конкурентов. Минимальное значение — `1`."
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Максимальное количество конкурентов на странице. Допустимы значения от `1` до `50`."
+        }
+      }
+    },
+    "v1GetCompetitorsResponse": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "competitor": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/GetCompetitorsResponseCompetitorInfo"
+          },
+          "description": "Список конкурентов."
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Общее количество конкурентов."
+        }
+      }
+    },
+    "GetCompetitorsResponseCompetitorInfo": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Название конкурента."
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Идентификатор конкурента."
+        }
+      }
+    },
+    "v1GetStrategyListRequest": {
+      "required": [
+        "page",
+        "limit"
+      ],
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Страница списка, с которой нужно выгрузить стратегии. Минимальное значение — `1`."
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Максимальное количество стратегий на странице. Допустимые значения — от `1` до `50`."
+        }
+      }
+    },
+    "v1GetStrategyListResponse": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "strategies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/GetStrategyListResponseStrategy"
+          },
+          "description": "Список стратегий."
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Общее количество стратегий."
+        }
+      }
+    },
+    "GetStrategyListResponseStrategy": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Идентификатор стратегии."
+        },
+        "name": {
+          "type": "string",
+          "description": "Название стратегии."
+        },
+        "type": {
+          "type": "string",
+          "description": "Тип стратегии:\n- `MIN_EXT_PRICE` — системная,\n- `COMP_PRICE` — пользовательская.\n"
+        },
+        "update_type": {
+          "type": "string",
+          "description": "Тип последнего изменения стратегии:\n- `strategyEnabled` — возобновлена,\n- `strategyDisabled` — остановлена,\n- `strategyChanged` — обновлена,\n- `strategyCreated` — создана,\n- `strategyItemsListChanged` — изменён набор товаров в стратегии.\n"
+        },
+        "updated_at": {
+          "type": "string",
+          "description": "Дата последнего изменения."
+        },
+        "products_count": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Количество товаров в стратегии."
+        },
+        "competitors_count": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Количество выбранных конкурентов."
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "Статус стратегии:\n- `true` — включена,\n- `false` — отключена.\n"
+        }
+      }
+    },
+    "v1CreatePricingStrategyRequest": {
+      "required": [
+        "competitors",
+        "strategy_name"
+      ],
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "competitors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/v1Competitor"
+          },
+          "description": "Список конкурентов."
+        },
+        "strategy_name": {
+          "type": "string",
+          "description": "Название стратегии."
+        }
+      }
+    },
+    "v1Competitor": {
+      "required": [
+        "coefficient",
+        "competitor_id"
+      ],
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "coefficient": {
+          "type": "number",
+          "format": "float",
+          "description": "Коэффициент, на который будет умножаться минимальная цена среди конкурентов. Допустимый диапазон — от `0.5` до `1.2`."
+        },
+        "competitor_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Идентификатор конкурента."
+        }
+      }
+    },
+    "v1CreatePricingStrategyResponse": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/components/schemas/v1CreatePricingStrategyResponseResult"
+        }
+      }
+    },
+    "v1CreatePricingStrategyResponseResult": {
+      "type": "object",
+      "title": "object",
+      "description": "Результат работы метода.",
+      "properties": {
+        "strategy_id": {
+          "type": "string",
+          "description": "Идентификатор стратегии."
+        }
+      }
+    },
+    "v1StrategyRequest": {
+      "required": [
+        "strategy_id"
+      ],
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "strategy_id": {
+          "type": "string",
+          "description": "Идентификатор стратегии."
+        }
+      }
+    },
+    "v1GetStrategyResponse": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/components/schemas/v1GetStrategyResponseResult"
+        }
+      }
+    },
+    "v1GetStrategyResponseResult": {
+      "type": "object",
+      "title": "object",
+      "description": "Результат работы метода.",
+      "properties": {
+        "competitors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/v1Competitor"
+          },
+          "description": "Список конкурентов."
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "Статус стратегии:\n- `true` — включена,\n- `false` — отключена.\n"
+        },
+        "name": {
+          "type": "string",
+          "description": "Название стратегии."
+        },
+        "type": {
+          "type": "string",
+          "description": "Тип стратегии:\n- `MIN_EXT_PRICE` — системная стратегия,\n- `COMP_PRICE` — пользовательская стратегия.\n"
+        },
+        "update_type": {
+          "type": "string",
+          "description": "Тип последнего изменения стратегии:\n  - `strategyEnabled` — возобновлена,\n  - `strategyDisabled` — остановлена,\n  - `strategyChanged` — обновлена,\n  - `strategyCreated` — создана,\n  - `strategyItemsListChanged` — изменён набор товаров в стратегии.\n"
+        }
+      }
+    },
+    "v1UpdatePricingStrategyRequest": {
+      "required": [
+        "competitors",
+        "strategy_id",
+        "strategy_name"
+      ],
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "competitors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/v1Competitor"
+          },
+          "description": "Список конкурентов."
+        },
+        "strategy_id": {
+          "type": "string",
+          "description": "Идентификатор стратегии."
+        },
+        "strategy_name": {
+          "type": "string",
+          "description": "Название стратегии."
+        }
+      }
+    },
+    "v1Empty": {
+      "type": "object",
+      "title": "object"
+    },
+    "v1AddStrategyItemsRequest": {
+      "required": [
+        "product_id",
+        "strategy_id"
+      ],
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "product_id": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          },
+          "description": "Список идентификаторов товаров в системе Ozon — `product_id`. Максимальное количество — 50."
+        },
+        "strategy_id": {
+          "type": "string",
+          "description": "Идентификатор стратегии."
+        }
+      }
+    },
+    "v1AddStrategyItemsResponse": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/components/schemas/v1AddStrategyItemsResponseResult"
+        }
+      }
+    },
+    "v1AddStrategyItemsResponseResult": {
+      "type": "object",
+      "title": "object",
+      "description": "Результат работы метода.",
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/AddStrategyItemsResponseError"
+          },
+          "description": "Товары с ошибками."
+        },
+        "failed_product_count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество товаров с ошибками."
+        }
+      }
+    },
+    "AddStrategyItemsResponseError": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Код ошибки."
+        },
+        "error": {
+          "type": "string",
+          "description": "Текст ошибки."
+        },
+        "product_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Идентификатор товара в системе Ozon — `product_id`."
+        }
+      }
+    },
+    "v1ItemIDsRequest": {
+      "required": [
+        "product_id"
+      ],
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "product_id": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          },
+          "description": "Список идентификаторов товаров в системе Ozon — `product_id`. Максимальное количество — 50."
+        }
+      }
+    },
+    "v1GetStrategyIDsByItemIDsResponse": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/components/schemas/v1GetStrategyIDsByItemIDsResponseResult"
+        }
+      }
+    },
+    "v1GetStrategyIDsByItemIDsResponseResult": {
+      "type": "object",
+      "title": "object",
+      "description": "Результат работы метода.",
+      "properties": {
+        "products_info": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/GetStrategyIDsByItemIDsResponseProductInfo"
+          },
+          "description": "Информация о товаре."
+        }
+      }
+    },
+    "GetStrategyIDsByItemIDsResponseProductInfo": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "product_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Идентификатор товара в системе Ozon — `product_id`."
+        },
+        "strategy_id": {
+          "type": "string",
+          "description": "Идентификатор стратегии, в которую добавлен товар."
+        }
+      }
+    },
+    "v1GetStrategyItemsResponse": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/components/schemas/v1GetStrategyItemsResponseResult"
+        }
+      }
+    },
+    "v1GetStrategyItemsResponseResult": {
+      "type": "object",
+      "title": "object",
+      "description": "Список товаров.",
+      "properties": {
+        "product_id": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          },
+          "description": "Идентификатор товара в системе Ozon — `product_id`."
+        }
+      }
+    },
+    "v1GetStrategyItemInfoRequest": {
+      "required": [
+        "product_id"
+      ],
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "product_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Идентификатор товара в системе Ozon — `product_id`."
+        }
+      }
+    },
+    "v1GetStrategyItemInfoResponse": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/components/schemas/v1GetStrategyItemInfoResponseResult"
+        }
+      }
+    },
+    "v1GetStrategyItemInfoResponseResult": {
+      "type": "object",
+      "title": "object",
+      "description": "Результат работы метода.",
+      "properties": {
+        "strategy_id": {
+          "type": "string",
+          "description": "Идентификатор стратегии."
+        },
+        "is_enabled": {
+          "type": "boolean",
+          "description": "`true`, если товар участвует в стратегии ценообразования.\n"
+        },
+        "strategy_product_price": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Цена по стратегии."
+        },
+        "price_downloaded_at": {
+          "type": "string",
+          "description": "Дата установки цены по стратегии."
+        },
+        "strategy_competitor_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Идентификатор конкурента.",
+          "deprecated": true
+        },
+        "strategy_competitor_product_url": {
+          "type": "string",
+          "description": "Ссылка на товар конкурента."
+        }
+      }
+    },
+    "v1DeleteStrategyItemsResponse": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/components/schemas/v1DeleteStrategyItemsResponseResult"
+        }
+      }
+    },
+    "v1DeleteStrategyItemsResponseResult": {
+      "type": "object",
+      "title": "object",
+      "description": "Результат работы метода.",
+      "properties": {
+        "failed_product_count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество товаров с ошибками."
+        }
+      }
+    },
+    "v1UpdateStatusStrategyRequest": {
+      "required": [
+        "strategy_id"
+      ],
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Статус стратегии:\n- `true` — включена,\n- `false` — отключена.\n"
+        },
+        "strategy_id": {
+          "type": "string",
+          "description": "Идентификатор стратегии."
+        }
+      }
+    },
+    "analyticsStockOnWarehouseRequest": {
+      "required": [
+        "limit"
+      ],
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "limit": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Количество ответов на странице. По умолчанию — 100."
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Количество элементов, которое будет пропущено в ответе. Например, если `offset = 10`, то ответ начнётся с 11-го найденного элемента."
+        },
+        "warehouse_type": {
+          "$ref": "#/components/schemas/AnalyticsGetStockOnWarehousesRequestWarehouseType"
+        }
+      }
+    },
+    "AnalyticsGetStockOnWarehousesRequestWarehouseType": {
+      "default": "ALL",
+      "enum": [
+        "ALL",
+        "EXPRESS_DARK_STORE",
+        "NOT_EXPRESS_DARK_STORE"
+      ],
+      "description": "Фильтр по типу склада:\n  - `EXPRESS_DARK_STORE` — склады Ozon с доставкой Fresh.\n  - `NOT_EXPRESS_DARK_STORE` — склады Ozon без доставки Fresh.\n  - `ALL` — все склады Ozon.\n",
+      "type": "string"
+    },
+    "analyticsStockOnWarehouseResponse": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/components/schemas/analyticsStockOnWarehouseResponseResult"
+        }
+      }
+    },
+    "analyticsStockOnWarehouseResponseResult": {
+      "type": "object",
+      "title": "object",
+      "description": "Результат запроса.",
+      "properties": {
+        "rows": {
+          "type": "array",
+          "description": "Информация о товарах и остатках.",
+          "items": {
+            "$ref": "#/components/schemas/analyticsStockOnWarehouseResultRows"
+          }
+        }
+      }
+    },
+    "analyticsStockOnWarehouseResultRows": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "sku": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Идентификатор товара в системе Ozon — SKU."
+        },
+        "item_code": {
+          "type": "string",
+          "description": "Идентификатор товара в системе продавца — артикул."
+        },
+        "item_name": {
+          "type": "string",
+          "description": "Название товара в системе Ozon."
+        },
+        "free_to_sell_amount": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Количество товара, доступное к продаже на Ozon."
+        },
+        "promised_amount": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Количество товара, указанное в подтверждённых будущих поставках."
+        },
+        "reserved_amount": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Количество товара, зарезервированное для покупки, возврата и перевозки между складами."
+        },
+        "warehouse_name": {
+          "type": "string",
+          "description": "Название склада, где находится товар."
+        }
+      }
+    },
+    "v1AnalyticsTurnoverStocksRequest": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "limit": {
+          "type": "integer",
+          "format": "int32",
+          "minimum": 1,
+          "maximum": 1000,
+          "description": "Количество значений в ответе.\n"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество элементов, которое будет пропущено в ответе.\n\nНапример, если `offset = 10`, ответ начнётся с 11-го найденного элемента.\n"
+        },
+        "sku": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          },
+          "description": "Идентификаторы товаров в системе Ozon — SKU."
+        }
+      }
+    },
+    "v1AnalyticsTurnoverStocksResponse": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "description": "Товары.",
+          "items": {
+            "$ref": "#/components/schemas/v1AnalyticsTurnoverStocksResponseItem"
+          }
+        }
+      }
+    },
+    "v1AnalyticsTurnoverStocksResponseItem": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "ads": {
+          "type": "number",
+          "format": "double",
+          "description": "Среднесуточное количество проданных единиц товара за последние 60 дней."
+        },
+        "current_stock": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Остаток товара, шт."
+        },
+        "idc": {
+          "type": "number",
+          "format": "double",
+          "description": "На сколько дней хватит остатка товара с учётом среднесуточных продаж."
+        },
+        "idc_grade": {
+          "type": "string",
+          "enum": [
+            "GRADES_NONE",
+            "GRADES_NOSALES",
+            "GRADES_GREEN",
+            "GRADES_YELLOW",
+            "GRADES_RED",
+            "GRADES_CRITICAL"
+          ],
+          "default": "GRADES_NONE",
+          "description": "Уровень остатка товара:\n- `GRADES_NONE` — ожидаются поставки;\n- `GRADES_NOSALES` — нет продаж;\n- `GRADES_GREEN` — зелёный, «хороший»;\n- `GRADES_YELLOW` — жёлтый, «средний»;\n- `GRADES_RED` — красный, «плохой»;\n- `GRADES_CRITICAL` — критический.\n"
+        },
+        "name": {
+          "type": "string",
+          "description": "Название товара."
+        },
+        "offer_id": {
+          "type": "string",
+          "description": "Идентификатор товара в системе продавца — артикул."
+        },
+        "sku": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Идентификатор товара в системе Ozon — SKU."
+        },
+        "turnover": {
+          "type": "number",
+          "format": "double",
+          "description": "Фактическая оборачиваемость в днях."
+        },
+        "turnover_grade": {
+          "type": "string",
+          "enum": [
+            "GRADES_NONE",
+            "GRADES_NOSALES",
+            "GRADES_GREEN",
+            "GRADES_YELLOW",
+            "GRADES_RED",
+            "GRADES_CRITICAL"
+          ],
+          "default": "GRADES_NONE",
+          "description": "Уровень оборачиваемости:\n- `GRADES_NONE` — ожидаются поставки;\n- `GRADES_NOSALES` — нет продаж;\n- `GRADES_GREEN` — зелёный, «хороший»;\n- `GRADES_YELLOW` — жёлтый, «средний»;\n- `GRADES_RED` — красный, «плохой»;\n- `GRADES_CRITICAL` — критический.\n"
+        }
+      }
+    },
+    "v1AnalyticsStocksRequest": {
+      "type": "object",
+      "title": "object",
+      "required": [
+        "skus"
+      ],
+      "properties": {
+        "cluster_ids": {
+          "description": "Фильтр по идентификаторам кластеров. Получить идентификаторы можно через метод [/v1/cluster/list](#operation/SupplyDraftAPI_DraftClusterList).",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "item_tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "ITEM_ATTRIBUTE_NONE",
+              "ECONOM",
+              "NOVEL",
+              "DISCOUNT",
+              "FBS_RETURN",
+              "SUPER",
+              "MARKABLE"
+            ]
+          },
+          "description": "Фильтр по тегам товара:      \n- `ITEM_ATTRIBUTE_NONE` — без тега;\n- `ECONOM` — эконом-товар;\n- `NOVEL` — новинка;\n- `DISCOUNT` — уценённый товар;\n- `FBS_RETURN` — товар из возврата FBS;\n- `SUPER` — Super-товар;\n- `MARKABLE` — товар, подлежащий маркировке.\n"
+        },
+        "macrolocal_cluster_ids": {
+          "description": "Фильтр по идентификаторам макролокальных кластеров. Получить идентификаторы можно в параметре `macrolocal_cluster_ids` метода [/v1/cluster/list](#operation/SupplyDraftAPI_DraftClusterList) или через метод [/v2/cluster/list](#operation/DraftClusterList).",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "placement_zone": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "PLACEMENT_ZONE_NONE",
+              "CLOSED_ZONE",
+              "DANGEROUS_GOOD",
+              "PRODUCTS_PLUS_17",
+              "SORT",
+              "NON_SORT_MEZ",
+              "OVERSIZE",
+              "JEWELRY",
+              "UNRESOLVED"
+            ]
+          },
+          "description": "Зона размещения товара:\n- `PLACEMENT_ZONE_NONE` — не указана;\n- `CLOSED_ZONE` — закрытая;\n- `DANGEROUS_GOOD` — опасные товары;\n- `PRODUCTS_PLUS_17` — продукты;\n- `SORT` — сортируемый товар;\n- `NON_SORT_MEZ` — несортируемый товар;\n- `OVERSIZE` — крупногабаритный товар;\n- `JEWELRY` — ювелирные изделия;\n- `UNRESOLVED` — ещё не определена.\n"
+        },
+        "skus": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          },
+          "maximum": 100,
+          "description": "Фильтр по идентификаторам товаров в системе Ozon — SKU."
+        },
+        "turnover_grades": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "TURNOVER_GRADE_NONE",
+              "DEFICIT",
+              "POPULAR",
+              "ACTUAL",
+              "SURPLUS",
+              "NO_SALES",
+              "WAS_NO_SALES",
+              "RESTRICTED_NO_SALES",
+              "COLLECTING_DATA",
+              "WAITING_FOR_SUPPLY",
+              "WAS_DEFICIT",
+              "WAS_POPULAR",
+              "WAS_ACTUAL",
+              "WAS_SURPLUS"
+            ]
+          },
+          "description": "Фильтр по статусу ликвидности товаров:      \n- `TURNOVER_GRADE_NONE` — нет статуса ликвидности.      \n- `DEFICIT` — дефицитный. Остатков товара хватит до 28 дней.\n- `POPULAR` — очень популярный. Остатков товара хватит на 28–56 дней.\n- `ACTUAL` — популярный. Остатков товара хватит на 56–120 дней.\n- `SURPLUS` — избыточный. Товар продаётся медленно, остатков хватит более чем на 120 дней.\n- `NO_SALES` — без продаж. У товара нет продаж последние 28 дней.\n- `WAS_NO_SALES` — был без продаж. У товара не было продаж и остатков последние 28 дней.\n- `RESTRICTED_NO_SALES` — без продаж, ограничен. У товара не было продаж более 120 дней. Такой товар [нельзя добавить в поставку](https://seller-edu.ozon.ru/fbo/rabota-so-stokom/nehodovye-tovary).\n- `COLLECTING_DATA` — сбор данных. Для расчёта ликвидности нового товара собираем данные в течение 60 дней после поставки.\n- `WAITING_FOR_SUPPLY` — ожидаем поставки. На складе нет остатков, доступных к продаже. Сделайте поставку для начала сбора данных.\n- `WAS_DEFICIT` — был дефицитным. Товар был дефицитным последние 56 дней. Сейчас у него нет остатков.\n- `WAS_POPULAR` — был очень популярным. Товар был очень популярным последние 56 дней. Сейчас у него нет остатков.\n- `WAS_ACTUAL` — был популярным. Товар был популярным последние 56 дней. Сейчас у него нет остатков.\n- `WAS_SURPLUS` — был избыточным. Товар был избыточным последние 56 дней. Сейчас у него нет остатков.\n"
+        },
+        "unmarked_stocks_only": {
+          "type": "boolean",
+          "description": "`true`, чтобы получить только товары, которые нужно промаркировать.\n"
+        },
+        "warehouse_ids": {
+          "description": "Фильтр по идентификаторам складов. Получить идентификаторы можно через метод [/v1/warehouse/list](#operation/WarehouseAPI_WarehouseList).",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        }
+      }
+    },
+    "v1AnalyticsStocksResponse": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "description": "Информация о товарах.",
+          "items": {
+            "$ref": "#/components/schemas/v1AnalyticsStocksResponseItem"
+          }
+        }
+      }
+    },
+    "v1AnalyticsStocksResponseItem": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "ads": {
+          "type": "number",
+          "format": "double",
+          "description": "Среднесуточное количество проданных единиц товара за последние 28 дней по всем кластерам."
+        },
+        "ads_cluster": {
+          "type": "number",
+          "format": "double",
+          "description": "Среднесуточное количество проданных единиц товара за последние 28 дней в кластере."
+        },
+        "available_stock_count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество товаров, которые доступны к продаже. Соответствует столбцу «Доступно к продаже»."
+        },
+        "cluster_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Идентификатор кластера. Получить подробную информацию о кластере можно через метод [/v1/cluster/list](#operation/SupplyDraftAPI_DraftClusterList)."
+        },
+        "cluster_name": {
+          "type": "string",
+          "description": "Название кластера."
+        },
+        "days_without_sales": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество дней без продаж по всем кластерам."
+        },
+        "days_without_sales_cluster": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество дней без продаж в кластере."
+        },
+        "excess_stock_count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество излишков с поставки, которые доступны к вывозу."
+        },
+        "expiring_stock_count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество единиц товара с истекающим сроком годности."
+        },
+        "idc": {
+          "type": "number",
+          "format": "double",
+          "description": "Количество дней, на которое хватит остатка товара с учётом среднесуточных продаж за 28 дней по всем кластерам."
+        },
+        "idc_cluster": {
+          "type": "number",
+          "format": "double",
+          "description": "Количество дней, на которое хватит остатка товара с учётом среднесуточных продаж за 28 дней в кластере."
+        },
+        "inbound_replenishment": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество товаров в перемещении."
+        },
+        "item_tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "UNSPECIFIED",
+              "ITEM_ATTRIBUTE_NONE",
+              "ECONOM",
+              "NOVEL",
+              "DISCOUNT",
+              "FBS_RETURN",
+              "SUPER",
+              "MARKABLE"
+            ]
+          },
+          "description": "Теги товара:\n- `UNSPECIFIED` — не определено;\n- `ITEM_ATTRIBUTE_NONE` — без тега;\n- `ECONOM` — эконом-товар;\n- `NOVEL` — новинка;\n- `DISCOUNT` — уценённый товар;\n- `FBS_RETURN` — товар из возврата FBS;\n- `SUPER` — Super-товар;\n- `MARKABLE` — товар, подлежащий маркировке.\n"
+        },
+        "macrolocal_cluster_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Идентификатор макролокального кластера. Получите информацию о кластере методом [/v1/cluster/list](#operation/SupplyDraftAPI_DraftClusterList) или [/v2/cluster/list](#operation/DraftClusterList)."
+        },
+        "name": {
+          "type": "string",
+          "description": "Название товара."
+        },
+        "offer_id": {
+          "type": "string",
+          "description": "Идентификатор товара в системе продавца — артикул."
+        },
+        "other_stock_count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество единиц товара, проходящих проверку."
+        },
+        "outbound_pending_delivery": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество товаров, которые доставляются покупателям."
+        },
+        "outbound_returns_picking": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество товаров, которые готовятся к вывозу."
+        },
+        "outbound_returns_ready_to_ship": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество товаров, которые готовы к вывозу."
+        },
+        "outbound_returns_return_to_seller": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество товаров, которые возвращаются продавцу."
+        },
+        "placement_zone": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "UNSPECIFIED",
+              "CLOSED_ZONE",
+              "DANGEROUS_GOOD",
+              "PRODUCTS",
+              "SORT",
+              "NON_SORT",
+              "OVERSIZE",
+              "JEWELRY",
+              "UNRESOLVED"
+            ]
+          },
+          "description": "Зона размещения товара:\n- `UNSPECIFIED` — не указана;\n- `CLOSED_ZONE` — закрытая;\n- `DANGEROUS_GOOD` — опасные товары;\n- `PRODUCTS` — продукты;\n- `SORT` — сортируемый товар;\n- `NON_SORT` — несортируемый товар;\n- `OVERSIZE` — крупногабаритный товар;\n- `JEWELRY` — ювелирные изделия;\n- `UNRESOLVED` — ещё не определена.\n"
+        },
+        "requested_stock_count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество единиц товара в заявках на поставку."
+        },
+        "return_from_customer_stock_count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество единиц товара в процессе возврата от покупателей."
+        },
+        "return_to_seller_stock_count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество единиц товара, готовящихся к вывозу по вашей заявке."
+        },
+        "sku": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Идентификатор товара в системе Ozon — SKU."
+        },
+        "stock_defect_stock_count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество брака, доступное к вывозу со стока."
+        },
+        "stock_not_being_sold": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество товаров, которые сняты с продажи."
+        },
+        "transit_defect_stock_count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество брака, доступное к вывозу с поставки."
+        },
+        "transit_stock_count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество единиц товара в поставках в пути."
+        },
+        "turnover_grade": {
+          "type": "string",
+          "enum": [
+            "UNSPECIFIED",
+            "TURNOVER_GRADE_NONE",
+            "DEFICIT",
+            "POPULAR",
+            "ACTUAL",
+            "SURPLUS",
+            "NO_SALES",
+            "WAS_NO_SALES",
+            "RESTRICTED_NO_SALES",
+            "COLLECTING_DATA",
+            "WAITING_FOR_SUPPLY",
+            "WAS_DEFICIT",
+            "WAS_POPULAR",
+            "WAS_ACTUAL",
+            "WAS_SURPLUS"
+          ],
+          "description": "Статус ликвидности товара по всем кластерам:      \n- `UNSPECIFIED` — значение не определено.\n- `TURNOVER_GRADE_NONE` — нет статуса ликвидности.\n- `DEFICIT` — дефицитный. Остатков товара хватит до 28 дней.\n- `POPULAR` — очень популярный. Остатков товара хватит на 28–56 дней.\n- `ACTUAL` — популярный. Остатков товара хватит на 56–120 дней.\n- `SURPLUS` — избыточный. Товар продаётся медленно, остатков хватит более чем на 120 дней.\n- `NO_SALES` — без продаж. У товара нет продаж последние 28 дней.\n- `WAS_NO_SALES` — был без продаж. У товара не было продаж и остатков последние 28 дней.\n- `RESTRICTED_NO_SALES` — без продаж, ограничен. У товара не было продаж более 120 дней. Такой товар [нельзя добавить в поставку](https://seller-edu.ozon.ru/fbo/rabota-so-stokom/nehodovye-tovary).\n- `COLLECTING_DATA` — сбор данных. Для расчёта ликвидности нового товара собираем данные в течение 60 дней после поставки.\n- `WAITING_FOR_SUPPLY` — ожидаем поставки. На складе нет остатков, доступных к продаже. Сделайте поставку для начала сбора данных.\n- `WAS_DEFICIT` — был дефицитным. Товар был дефицитным последние 56 дней. Сейчас у него нет остатков.\n- `WAS_POPULAR` — был очень популярным. Товар был очень популярным последние 56 дней. Сейчас у него нет остатков.\n- `WAS_ACTUAL` — был популярным. Товар был популярным последние 56 дней. Сейчас у него нет остатков.\n- `WAS_SURPLUS` — был избыточным. Товар был избыточным последние 56 дней. Сейчас у него нет остатков.\n"
+        },
+        "turnover_grade_cluster": {
+          "type": "string",
+          "enum": [
+            "UNSPECIFIED",
+            "TURNOVER_GRADE_NONE",
+            "DEFICIT",
+            "POPULAR",
+            "ACTUAL",
+            "SURPLUS",
+            "NO_SALES",
+            "WAS_NO_SALES",
+            "RESTRICTED_NO_SALES",
+            "COLLECTING_DATA",
+            "WAITING_FOR_SUPPLY",
+            "WAS_DEFICIT",
+            "WAS_POPULAR",
+            "WAS_ACTUAL",
+            "WAS_SURPLUS"
+          ],
+          "description": "Статус ликвидности товара в кластере:      \n- `UNSPECIFIED` — значение не определено.\n- `TURNOVER_GRADE_NONE` — нет статуса ликвидности.\n- `DEFICIT` — дефицитный. Остатков товара хватит до 28 дней.\n- `POPULAR` — очень популярный. Остатков товара хватит на 28–56 дней.\n- `ACTUAL` — популярный. Остатков товара хватит на 56–120 дней.\n- `SURPLUS` — избыточный. Товар продаётся медленно, остатков хватит более чем на 120 дней.\n- `NO_SALES` — без продаж. У товара нет продаж последние 28 дней.\n- `WAS_NO_SALES` — был без продаж. У товара не было продаж и остатков последние 28 дней.\n- `RESTRICTED_NO_SALES` — без продаж, ограничен. У товара не было продаж более 120 дней. Такой товар [нельзя добавить в поставку](https://seller-edu.ozon.ru/fbo/rabota-so-stokom/nehodovye-tovary).\n- `COLLECTING_DATA` — сбор данных. Для расчёта ликвидности нового товара собираем данные в течение 60 дней после поставки.\n- `WAITING_FOR_SUPPLY` — ожидаем поставки. На складе нет остатков, доступных к продаже. Сделайте поставку для начала сбора данных.\n- `WAS_DEFICIT` — был дефицитным. Товар был дефицитным последние 56 дней. Сейчас у него нет остатков.\n- `WAS_POPULAR` — был очень популярным. Товар был очень популярным последние 56 дней. Сейчас у него нет остатков.\n- `WAS_ACTUAL` — был популярным. Товар был популярным последние 56 дней. Сейчас у него нет остатков.\n- `WAS_SURPLUS` — был избыточным. Товар был избыточным последние 56 дней. Сейчас у него нет остатков.\n"
+        },
+        "valid_stock_count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество товаров, которые готовятся к продаже. Соответствует столбцу «Готовим к продаже»."
+        },
+        "waiting_docs_stock_count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество маркируемых товаров, которые ожидают ваших действий."
+        },
+        "waiting_docs_to_export_stock_count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Количество маркируемых товаров, которые ожидают вывоз."
+        },
+        "warehouse_id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Идентификатор склада."
+        },
+        "warehouse_name": {
+          "type": "string",
+          "description": "Название склада."
+        }
+      }
+    },
+    "v1RatingSummaryV1Response": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "groups": {
+          "description": "Список с группами рейтингов.",
+          "items": {
+            "$ref": "#/components/schemas/RatingSummaryV1ResponseGroup"
+          }
+        },
+        "localization_index": {
+          "description": "Данные по индексу локализации. Если за последние 14 дней у вас не было продаж, поля параметра будут пустыми.",
+          "items": {
+            "$ref": "#/components/schemas/RatingSummaryV1ResponseLocalIndex"
+          }
+        },
+        "penalty_score_exceeded": {
+          "description": "Признак, что баланс штрафных баллов превышен.",
+          "type": "boolean"
+        },
+        "premium": {
+          "description": "Признак наличия подписки [Premium](https://seller-edu.ozon.ru/seller-rating/about-rating/premium-program).",
+          "type": "boolean"
+        },
+        "premium_plus": {
+          "description": "Признак наличия подписки [Premium Plus](https://seller-edu.ozon.ru/seller-rating/about-rating/subscription-premium-plus).",
+          "type": "boolean"
+        }
+      }
+    },
+    "RatingSummaryV1ResponseGroup": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "group_name": {
+          "description": "Название группы рейтингов.",
+          "type": "string"
+        },
+        "items": {
+          "description": "Список рейтингов.",
+          "items": {
+            "$ref": "#/components/schemas/v1RatingItem"
+          }
+        }
+      }
+    },
+    "v1RatingItem": {
+      "type": "object",
+      "title": "object",
+      "properties": {
+        "change": {
+          "$ref": "#/components/schemas/RatingItemChange"
+        },
+        "current_value": {
+          "description": "Текущее значение рейтинга.",
+          "type": "number",
+          "format": "double"
+        },
+        "name": {
+          "description": "Название рейтинга.",
+          "type": "string"
+        },
+        "past_value": {
+          "description": "Предыдущее значение рейтинга.",
+          "type": "number",
+          "format": "double"
+        },
+        "rating": {
+          "description": "Название рейтинга в системе.",
+          "type": "string"
+        },
+        "rating_direction": {
+          "description": "Каким должно быть значение рейтинга, чтобы оно считалось хорошим:\n- `UNKNOWN_DIRECTION` — не определено.\n- `NEUTRAL` — неважно.\n- `HIGHER_IS_BETTER` — чем выше, тем лучше.\n- `LOWER_IS_BETTER` — чем ниже, тем лучше.\n",
+          "type": "string"
+        },
+        "status": {
+          "description": "Статус рейтинга:\n- `UNKNOWN_STATUS` — не определён.\n- `OK` — все хорошо.\n- `WARNING` — показатели требуют внимания.\n- `CRITICAL` — критичный рейтинг.\n",
+          "type": "string"
+        },
+        "value_type": {
+          "description": "Тип значения:\n- `UNKNOWN_VALUE` — не определён.\n- `INDEX` — индекс.\n- `PERCENT` — процент.\n- `TIME` — время.\n- `RATIO` — коэффициент.\n- `REVIEW_SCORE` — оценка.\n- `COUNT` — счёт.\n",
+          "type": "string"
+        }
+      }
+    },
+    "RatingItemChange": {
+      "type": "object",
+      "title": "object",
+      "description": "Изменение рейтинга: отношение предыдущего значения к текущему.\n",
+      "properties": {
+        "direction": {
+          "description": "Как изменилось значение рейтинга:\n- `DIRECTION_UNKNOWN` — не определено.\n- `DIRECTION_NONE` — не изменилось.\n- `DIRECTION_RISE` — выросло.\n- `DIRECTION_FALL` — упало.\n",
+          "type": "string"
+        },
+        "meaning": {
+          "description": "Что означает изменение:\n- `MEANING_UNKNOWN` — неизвестно.\n- `MEANING_NONE` — нейтрально.\n- `MEANING_GOOD` — показатель улучшается, всё хорошо.\n- `MEANING_BAD` — показатель падает, нужно что-то сделать.\n",
+          "type": "string"
+        }
+      }
+    },
+    "RatingSummaryV1ResponseLocalIndex": {
+      "type": "object",
+      "properties": {
+        "calculation_date": {
+          "description": "Дата расчёта индекса локализации.",
+          "format": "date-time",
+          "type": "string"
+        },
+        "localization_percentage": {
+          "description": "Значение индекса локализации.",
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    }
+  }
+}

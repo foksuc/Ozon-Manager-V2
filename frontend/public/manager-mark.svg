@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <title>Ozon Manager — товары, цены и управление</title>
+  <rect x="2" y="2" width="44" height="44" rx="14" fill="#005BFF"/>
+  <path d="m12 17 12-6 12 6v14l-12 6-12-6V17Z" stroke="white" stroke-width="2.4" stroke-linejoin="round"/>
+  <path d="m12 17 12 6 12-6M24 23v14" stroke="white" stroke-width="2.4" stroke-linejoin="round"/>
+  <circle cx="35" cy="34" r="9" fill="#F91155"/>
+  <path d="M30.5 34h9M35 29.5v9" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
+</svg>
